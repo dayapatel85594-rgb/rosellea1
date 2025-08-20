@@ -1,0 +1,28 @@
+{
+  "type": "module",
+  "name": "rosellea",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node start-dev.js",
+    "start": "concurrently \"npm run server:start\" \"npm run client:build\" --names \"SERVER,BUILD\" --prefix-colors \"blue,green\"",
+    "build": "node build-production.js",
+    "server:dev": "cd server && npm run dev",
+    "server:start": "cd server && npm start",
+    "client:dev": "cd client && npm run dev",
+    "client:build": "cd client && npm run build",
+    "seed": "cd server && npm run seed",
+    "setup": "npm run install:all && npm run seed",
+    "install:all": "npm install && cd server && npm install && cd ../client && npm install",
+    "clean": "cd server && rm -rf node_modules && cd ../client && rm -rf node_modules && rm -rf node_modules",
+    "reset": "npm run clean && npm run install:all",
+    "verify": "node verify-setup.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Rosellea - Luxury Women's Fashion E-commerce Platform",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
